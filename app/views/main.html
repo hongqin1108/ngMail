@@ -1,0 +1,16 @@
+<div ng-controller="ChatController">
+  <div id="login">
+    <span ng-show="auth.user">
+      {{auth.user.name}} | <a href="#" ng-click="auth.$logout()">Logout</a>
+    </span>
+    <a href="#" ng-hide="auth.user" ng-click="auth.$login('github')">Login</a>
+  </div>
+  <ul ng-repeat="message in messages">
+    <li>{{message.from}}: {{message.content}}</li>
+  </ul>
+  <h2>{{auth.user.name}}</h2>
+  <form ng-submit="addMessage();">
+    <input type="text" ng-model="message" placeholder="hello">
+    <input type="submit" value="Send Message">
+  </form>
+</div>
